@@ -2,7 +2,8 @@ import './featured.css';
 import useAxios from '../../hooks/useAxios';
 
 const Featured = () => {
-	const url = 'http://localhost:8000/hotels?cities=Delhi,Bangalore,Mumbai';
+	const url =
+    "https://hotel-tonight.onrender.com/hotels?cities=Delhi,Bangalore,Mumbai";
 
 	const { data, error, loading } = useAxios(url);
 

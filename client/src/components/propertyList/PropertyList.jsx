@@ -2,7 +2,7 @@ import useAxios from '../../hooks/useAxios';
 import './propertyList.css';
 
 const PropertyList = () => {
-	const url = 'http://localhost:8000/hotels/gettypes';
+	const url = "https://hotel-tonight.onrender.com/hotels/gettypes";
 	const { data, loading, error } = useAxios(url);
 
 	const contentArray = [

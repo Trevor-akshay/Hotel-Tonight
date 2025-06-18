@@ -14,7 +14,7 @@ import { useState } from "react";
 
 import useAxios from "../../hooks/useAxios"
 const Hotel = ({id}) => {
-  const url = `http://localhost:8000/hotels/${id}`
+  const url = `https://hotel-tonight.onrender.com/${id}`;
   const { data, loading, error } = useAxios(url);
   console.log(loading, data)
   const [slideNumber, setSlideNumber] = useState(0);

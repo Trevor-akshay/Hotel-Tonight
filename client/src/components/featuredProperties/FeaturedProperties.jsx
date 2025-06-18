@@ -2,7 +2,7 @@ import useAxios from '../../hooks/useAxios';
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
-  const url = "http://localhost:8000/hotels/getfeatured";
+  const url = "https://hotel-tonight.onrender.com/hotels/getfeatured";
   const { data, loading, error } = useAxios(url);
   
   console.log(data)
