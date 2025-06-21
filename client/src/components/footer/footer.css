@@ -1,14 +1,14 @@
 .footer{
   width: 100%;
-  width: 1024px;
   margin:0 auto;
+  display: block;
   font-size: 12px;
 }
 
 .fLists{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 50px;
 }
 
@@ -25,4 +25,5 @@
 .fText{
  display: flex;
  justify-content:center;
+ background-color: #003580;
 }

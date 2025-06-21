@@ -12,13 +12,14 @@ import useAxios from "../../hooks/useAxios"
 
 const List = () => {
 	const location = useLocation();
-	const [destination, setDestination] = useState(location.state.destination);
-	const [date, setDate] = useState(location.state.date);
+	const [destination, setDestination] = useState(location.state?.destination);
+	const [date, setDate] = useState(location.state?.date);
 	const [openDate, setOpenDate] = useState(false);
-	const [options, setOptions] = useState(location.state.options);
+	const [options, setOptions] = useState(location.state?.options);
 
 	const url = `http://localhost:8000/hotels?city=${destination.replace(/^./, destination[0].toUpperCase())}`;
 	const { data, loading, error, reFetch } = useAxios(url);
+
 	return (
 		<div>
 			<Navbar />

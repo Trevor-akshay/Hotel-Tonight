@@ -2,6 +2,7 @@ import Express from 'express';
 import {
 	postUser,
 	loginUser,
+	changePassword,
 	getAllUsers,
 	getUserByID,
 	updateUser,
@@ -13,6 +14,7 @@ const userRouter = Express.Router();
 
 userRouter.post('/signup', postUser);
 userRouter.post('/login', loginUser);
+userRouter.post('/changepassword', changePassword);
 userRouter.get('/', verifyToken, verifyIsAdmin, getAllUsers);
 userRouter.get('/:id', verifyToken, getUserByID);
 userRouter.put('/:id', verifyToken, updateUser);

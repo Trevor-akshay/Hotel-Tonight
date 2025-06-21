@@ -1,0 +1,42 @@
+
+.user{
+    position: relative;  /* <-- added declarations */
+    width:auto;
+    border:2px solid white;
+    background-color:#003580;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    z-index: 100%;
+  }
+
+  .sectionContainer{
+    position: absolute; 
+    z-index:99999;
+    left:-50px;
+    width: 10rem;
+    height: 5rem;
+    text-align: center;
+    border:1px solid white;
+    border-radius: 10px;
+    margin-top : 10px;
+  }
+  
+  .section{
+    display: flex;
+    height:100%;
+    flex-direction: column;
+    justify-content:space-evenly;
+  }
+
+  .sectionAction{
+    cursor: pointer;
+
+  }
+
+  .sectionAction:hover{
+    border:1px solid transparent;
+    border-radius: 30px;
+    background-color:#0071C2;
+  }

@@ -1,13 +1,52 @@
 .hotelContainer {
+  width: 80%; 
   display: flex;
-  flex-direction: column;
+  margin: 20px auto;
+}
+
+.slider{
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
   align-items: center;
-  margin-top: 20px;
+}
+
+.sliderWrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sliderImg{
+  width: 90%;
+  height: 80vh;
+  border-radius: 15px;
+}
+
+.close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.arrow{
+  margin: 20px;
+  font-size: 50px;
+  color: lightgray;
+  cursor: pointer;
 }
 
 .hotelWrapper {
-  width: 100%;
-  max-width: 1024px;
+  max-width: 80%;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -16,8 +55,8 @@
 
 .bookNow {
   position: absolute;
-  top: 10px;
   right: 0;
+  top:30%;
   border: none;
   padding: 10px 20px;
   background-color: #0071c2;
@@ -84,6 +123,8 @@
   flex: 1;
   background-color: #ebf3ff;
   padding: 20px;
+  border:none;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -107,45 +148,4 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
-}
-
-.slider{
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.613);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-}
-
-.sliderWrapper{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sliderImg{
-  width: 80%;
-  height: 80vh;
-}
-
-.close{
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 30px;
-  color: lightgray;
-  cursor: pointer;
-}
-
-.arrow{
-  margin: 20px;
-  font-size: 50px;
-  color: lightgray;
-  cursor: pointer;
 }

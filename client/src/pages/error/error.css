@@ -1,0 +1,39 @@
+.errorContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #003580;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.error{
+    background-color: white;
+    border:none;
+    width: 100%;
+    height: 30%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    border-radius:unset;
+}
+
+.text{
+    color:red;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.btn{
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #0071c2;
+    color: white;
+}

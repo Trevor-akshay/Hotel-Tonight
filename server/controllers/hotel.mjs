@@ -4,6 +4,7 @@ import {
 	getCities,
 	getCity,
 	getTypesService,
+	getTypeService,
 	getFeaturedService,
 	getHotelService,
 	updateHotelService,
@@ -20,13 +21,16 @@ export const postHotel = async (request, response) => {
 };
 
 export const getHotels = async (request, response) => {
+	const { min, max } = request.params;
 	try {
 		if (request.query.cities)
 			response
 				.status(200)
 				.send(await getCities(request.query.cities.split(',')));
 		else if (request.query.city)
-			response.status(200).send(await getCity(request.query.city));
+			response.status(200).send(await getCity(request.query));
+		else if (request.query.type)
+			response.status(200).send(await getTypeService(request.query.type));
 		else response.status(200).send(await getHotelsService());
 	} catch (error) {
 		response.status(400).send(error.message);
@@ -40,6 +44,7 @@ export const getTypes = async (request, response) => {
 		response.status(400).send(error.message);
 	}
 };
+
 
 export const getFeatured = async (request, response) => {
 	try {

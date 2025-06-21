@@ -1,53 +1,59 @@
 import {
-  faBed,
-  faCalendarDays,
-  faCar,
-  faPerson,
-  faPlane,
-  faTaxi,
+	faBed,
+	faCalendarDays,
+	faCar,
+	faPerson,
+	faPlane,
+	faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = ({ type }) => {
-  const [destination, setDestination] = useState("");
-  const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-  const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
+	const location = useLocation();
+	const [destination, setDestination] = useState(location.state ? location.state.destination : "");
+	const [openDate, setOpenDate] = useState(false);
+	const [date, setDate] = useState([
+		{
+			startDate: new Date(),
+			endDate: new Date(),
+			key: "selection",
+		},
+	]);
+	const [openOptions, setOpenOptions] = useState(false);
+	const [options, setOptions] = useState({
+		adult: 1,
+		children: 0,
+		room: 1,
+	});
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const handleOption = (name, operation) => {
-    setOptions((prev) => {
-      return {
-        ...prev,
-        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-      };
-    });
-  };
+	useEffect(() => {
+		if (destination !== "")
+			handleSearch()
+	},[])
 
-  const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
-  };
+	const handleOption = (name, operation) => {
+		setOptions((prev) => {
+			return {
+				...prev,
+				[name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+			};
+		});
+	};
 
-  return (
+	const handleSearch = () => {
+		navigate("/hotels", { state: { destination, date, options } });
+	};
+
+	return (
 		<div className="header">
 			<div
 				className={
@@ -82,7 +88,6 @@ const Header = ({ type }) => {
 						<p className="headerDesc">
 							Search low prices on hotels, homes and much more...
 						</p>
-						<button className="headerBtn">Sign in / Register</button>
 						<div className="headerSearch">
 							<div className="headerSearchItem">
 								<FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -90,21 +95,21 @@ const Header = ({ type }) => {
 									type="text"
 									placeholder="Where are you going?"
 									className="headerSearchInput"
-								  onChange={(e) => setDestination(e.target.value)}
-								  onClick={() => {
-									  setOpenDate(false)
-									  setOpenOptions(false)
-								  }
-								  }
+									onChange={(e) => setDestination(e.target.value)}
+									onClick={() => {
+										setOpenDate(false)
+										setOpenOptions(false)
+									}
+									}
 								/>
 							</div>
 							<div className="headerSearchItem">
 								<FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
 								<span
-								  onClick={() => {
-									  setOpenOptions(false)
-									  setOpenDate(!openDate)
-								  }}
+									onClick={() => {
+										setOpenOptions(false)
+										setOpenDate(!openDate)
+									}}
 									className="headerSearchText"
 								>{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
 									date[0].endDate,
@@ -124,10 +129,10 @@ const Header = ({ type }) => {
 							<div className="headerSearchItem">
 								<FontAwesomeIcon icon={faPerson} className="headerIcon" />
 								<span
-								  onClick={() => {
-									  setOpenDate(false)
-									  setOpenOptions(!openOptions)
-								  }}
+									onClick={() => {
+										setOpenDate(false)
+										setOpenOptions(!openOptions)
+									}}
 									className="headerSearchText"
 								>{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
 								{openOptions && (

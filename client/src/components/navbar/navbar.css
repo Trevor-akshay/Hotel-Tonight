@@ -1,5 +1,4 @@
 .navbar{
-  height: 50px;
   background-color: #003580;
   display: flex;
   justify-content: center;
@@ -8,6 +7,7 @@
 .navContainer{
   width: 100%;
   max-width: 1024px;
+  margin-top: 5px;
   color: white;
   display: flex;
   align-items: center;
@@ -30,3 +30,10 @@
   cursor: pointer;
   color: #003580;
 }
+
+.navItems{
+  position: relative;
+}
+
+
+

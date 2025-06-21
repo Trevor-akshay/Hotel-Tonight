@@ -1,4 +1,5 @@
 import useAxios from '../../hooks/useAxios';
+import { Link, useNavigate } from 'react-router-dom';
 import './propertyList.css';
 
 const PropertyList = () => {
@@ -45,15 +46,15 @@ const PropertyList = () => {
 				<>
 					{contentArray.map((content) => {
 						return (
-							<div key={content.id} className="pListItem">
-								<img src={content.image} alt="logo" className="pListImg" />
-								<div className="pListTitles">
-									<h1>{content.title}</h1>
-									<h2>
-										{data[content.title]} {content.title}
-									</h2>
+								<div key={content.id} className="pListItem">
+									<img src={content.image} alt="logo" className="pListImg" />
+									<div className="pListTitles">
+										<h1>{content.title}</h1>
+										<h2>
+											{data[content.title]} {content.title}
+										</h2>
+									</div>
 								</div>
-							</div>
 						);
 					})}
 				</>

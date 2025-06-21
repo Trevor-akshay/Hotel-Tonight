@@ -33,9 +33,18 @@ export const getCities = async (cityArray) => {
 	}
 };
 
-export const getCity = async (city) => {
+export const getCity = async (query) => {
+	const { min, max, city } = query;
+	const hotels = await hotelSchema.find({ city });
+	const data = hotels.filter((hotel) => {
+		return hotel.price >= min && hotel['price'] <= max;
+	});
 	try {
-		return await hotelSchema.find({ city });
+		return await hotelSchema
+			.find({
+				city,
+			})
+			.limit(query?.limit);
 	} catch (err) {
 		throw err;
 	}
@@ -62,12 +71,18 @@ export const getTypesService = async () => {
 	}
 };
 
+export const getTypeService = async (type) => {
+	try {
+		type = type.replace(/^./, type[0].toUpperCase());
+		return await hotelSchema.find({ type });
+	} catch (error) {
+		throw err;
+	}
+};
+
 export const getFeaturedService = async (id) => {
 	try {
-		return await hotelSchema.find(
-			{ featured: true },
-			{ name: 1, type: 1, city: 1, description: 1, photos: 1, _id: 0 }
-		);
+		return await hotelSchema.find({ featured: true });
 	} catch (error) {
 		throw error;
 	}
