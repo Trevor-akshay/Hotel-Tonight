@@ -19,7 +19,7 @@ const Hotel = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const id = location?.pathname?.split('/')[2];
-	const url = `http://localhost:8000/hotels/${id}`;
+	const url = `https://hotel-tonight.onrender.com/hotels/${id}`;
 	const { data, loading, error } = useAxios(url);
 	const [slideNumber, setSlideNumber] = useState(0);
 	const [showReserve, setShowReserve] = useState(false);
@@ -146,7 +146,7 @@ const Hotel = () => {
 					<MailList />
 					<br></br>
 					<Footer />
-					{showReserve && <Reserve/>}
+					{showReserve && <Reserve />}
 				</>
 			)}
 		</div>

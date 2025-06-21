@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
-import userSchema from '../models/user.mjs';
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import userSchema from "../models/user.mjs";
 
-import dotenv from 'dotenv';
-dotenv.config({ path: './configs/.env' });
+import dotenv from "dotenv";
+dotenv.config({ path: "./configs/.env" });
 
 export const postUserService = async (body) => {
 	try {
@@ -63,11 +63,11 @@ export const changePasswordService = async (userDetails) => {
 };
 
 export const getUsersService = async () => {
-	try {
-		return await userSchema.find();
-	} catch (error) {
-		throw error;
-	}
+  try {
+    return await userSchema.find();
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getUserByIdService = async (id) => {

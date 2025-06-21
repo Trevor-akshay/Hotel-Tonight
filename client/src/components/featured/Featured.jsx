@@ -4,8 +4,10 @@ import './featured.css';
 import { format } from 'date-fns';
 
 const Featured = () => {
-	const url = 'http://localhost:8000/hotels?cities=Delhi,Bangalore,Mumbai';
 	const navigate = useNavigate();
+	const url =
+		'https://hotel-tonight.onrender.com/hotels?cities=Delhi,Bangalore,Mumbai';
+
 	const { data, error, loading } = useAxios(url);
 	return (
 		<div className="featured">
@@ -35,13 +37,16 @@ const Featured = () => {
 						</div>
 					</div>
 
-					<div className="featuredItem" onClick={() => {
-						navigate('/header', {
-							state: {
-								destination: 'Bangalore',
-							},
-						});
-					}}>
+					<div
+						className="featuredItem"
+						onClick={() => {
+							navigate('/header', {
+								state: {
+									destination: 'Bangalore',
+								},
+							});
+						}}
+					>
 						<img
 							src="https://t-cf.bstatic.com/xdata/images/city/square250/684534.webp?k=d1fe86c22f2433f4e2dda14ddcbe80feb024b0fb30305e5684a1241fba5d4cff&o="
 							alt="Bangalore"
@@ -52,13 +57,16 @@ const Featured = () => {
 							<h2>{data[1]} properties</h2>
 						</div>
 					</div>
-					<div className="featuredItem" onClick={() => {
-						navigate('/header', {
-							state: {
-								destination: 'Mumbai',
-							},
-						});
-					}}>
+					<div
+						className="featuredItem"
+						onClick={() => {
+							navigate('/header', {
+								state: {
+									destination: 'Mumbai',
+								},
+							});
+						}}
+					>
 						<img
 							src="https://t-cf.bstatic.com/xdata/images/city/square250/971346.webp?k=40eeb583a755f2835f4dcb6900cdeba2a46dc9d50e64f2aa04206f5f6fce5671&o="
 							alt="Mumbai"

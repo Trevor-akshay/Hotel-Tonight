@@ -7,8 +7,7 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
-import useAxios from "../../hooks/useAxios"
-
+import useAxios from "../../hooks/useAxios";
 
 const List = () => {
 	const location = useLocation();
@@ -17,7 +16,7 @@ const List = () => {
 	const [openDate, setOpenDate] = useState(false);
 	const [options, setOptions] = useState(location.state?.options);
 
-	const url = `http://localhost:8000/hotels?city=${destination.replace(/^./, destination[0].toUpperCase())}`;
+	const url = `https://hotel-tonight.onrender.com/hotels?city=${destination.replace(/^./, destination[0].toUpperCase())}`;
 	const { data, loading, error, reFetch } = useAxios(url);
 
 	return (
@@ -107,9 +106,8 @@ const List = () => {
 			<br></br>
 			<br></br>
 			<Footer />
-
-		</div>
-	);
+    </div>
+  );
 };
 
 export default List;
